@@ -10,19 +10,23 @@
 //: ## Subscript Syntax
 //:
 //: Subscripts enable you to query instances of a type by writing one or more values in square brackets after the instance name. Their syntax is similar to both instance method syntax and computed property syntax. You write subscript definitions with the subscript keyword, and specify one or more input parameters and a return type, in the same way as instance methods. Unlike instance methods, subscripts can be read-write or read-only. This behavior is communicated by a getter and setter in the same way as for computed properties:
-subscript(index: Int) -> Int {
-    get {
-        // Return an appropriate subscript value here.
-    }
-    set(newValue) {
-        // Perform a suitable setting action here.
+struct MyCustomArray {
+    subscript(index: Int) -> Int {
+        get {
+            return 0 // Return an appropriate subscript value here.
+        }
+        set(newValue) {
+            // Perform a suitable setting action here.
+        }
     }
 }
 //: The type of newValue is the same as the return value of the subscript. As with computed properties, you can choose not to specify the setter’s (newValue) parameter. A default parameter called newValue is provided to your setter if you don’t provide one yourself.
 //:
 //: As with read-only computed properties, you can simplify the declaration of a read-only subscript by removing the get keyword and its braces:
-subscript(index: Int) -> Int {
-    // Return an appropriate subscript value here.
+struct MyCustomArray2 {
+    subscript(index: Int) -> Int {
+        return 0 // Return an appropriate subscript value here.
+    }
 }
 //: Here’s an example of a read-only subscript implementation, which defines a TimesTable structure to represent an n-times-table of integers:
 struct TimesTable {
@@ -100,12 +104,12 @@ matrix[1, 0] = 3.2
 //:
 //: ![Diagram](subscriptMatrix02_2x.png)
 //: The Matrix subscript’s getter and setter both contain an assertion to check that the subscript’s row and column values are valid. To assist with these assertions, Matrix includes a convenience method called indexIsValid(row:column:), which checks whether the requested row and column are inside the bounds of the matrix:
-func indexIsValid(row: Int, column: Int) -> Bool {
-    return row >= 0 && row < rows && column >= 0 && column < columns
-}
+//func indexIsValid(row: Int, column: Int) -> Bool {
+//    return row >= 0 && row < rows && column >= 0 && column < columns
+//}
 //: An assertion is triggered if you try to access a subscript that’s outside of the matrix bounds:
-
-let someValue = matrix[2, 2]
+// ⛔️ Run time error: uncomment to view
+//let someValue = matrix[2, 2]
 // This triggers an assert, because [2, 2] is outside of the matrix bounds.
 //: ## Type Subscripts
 //:
