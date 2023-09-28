@@ -1,6 +1,7 @@
 //: ![Swift](swift-logo.png)
-//: Swift v5.7 [official docs](https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html)
-//: # 12. Subscripts
+//: Swift v5.7 | [Swift.org](https://docs.swift.org) | [The official Swift Language Guide](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics)
+//:
+//: # Page 12. Subscripts
 //:
 //:
 //: Classes, structures, and enumerations can define subscripts, which are shortcuts for accessing the member elements of a collection, list, or sequence. You use subscripts to set and retrieve values by index without needing separate methods for setting and retrieval. For example, you access elements in an Array instance as someArray[index] and elements in a Dictionary instance as someDictionary[key].
